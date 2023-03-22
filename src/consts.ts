@@ -1,7 +1,6 @@
 export const SITE = {
-	title: 'Documentation',
+	title: 'Record',
 	description: 'Your website description.',
-	defaultLanguage: 'en-us',
 } as const;
 
 export const OPEN_GRAPH = {
@@ -14,14 +13,15 @@ export const OPEN_GRAPH = {
 	twitter: 'astrodotbuild',
 };
 
-export const KNOWN_LANGUAGES = {
-	English: 'en',
+export const KNOWLEDGE_CLASS = {
+	FrontEnd: 'fe',
+	BackEnd: 'be',
 } as const;
-export const KNOWN_LANGUAGE_CODES = Object.values(KNOWN_LANGUAGES);
+export const KNOWN_CLASS_CODES = Object.values(KNOWLEDGE_CLASS);
 
-export const GITHUB_EDIT_URL = `https://github.com/withastro/astro/tree/main/examples/docs`;
+export const GITHUB_EDIT_URL = `https://github.com/ChuTingzj/new-blog/tree/master/src/content`;
 
-export const COMMUNITY_INVITE_URL = `https://astro.build/chat`;
+export const COMMUNITY_INVITE_URL = ``;
 
 // See "Algolia" section of the README for more information.
 export const ALGOLIA = {
@@ -31,16 +31,27 @@ export const ALGOLIA = {
 };
 
 export type Sidebar = Record<
-	(typeof KNOWN_LANGUAGE_CODES)[number],
+	(typeof KNOWN_CLASS_CODES)[number],
 	Record<string, { text: string; link: string }[]>
 >;
 export const SIDEBAR: Sidebar = {
-	en: {
-		'Section Header': [
-			{ text: 'Introduction', link: 'en/introduction' },
-			{ text: 'Page 2', link: 'en/page-2' },
-			{ text: 'Page 3', link: 'en/page-3' },
+	fe: {
+		'FrontEnd': [
+			{ text: 'Introduction', link: 'fe/introduction' },
+			{ text: 'Browser', link: 'fe/browser' },
+			{ text: 'Javascript', link: 'fe/js' },
+			{ text: 'Typescript', link: 'fe/typescript' },
+			{ text: 'Types', link: 'fe/types' },
+			{ text: 'Tips', link: 'fe/tips' },
+			{ text: 'Supreme', link: 'fe/supreme' },
+			{ text: 'Svelte', link: 'fe/svelte' },
+			{ text: 'Vue', link: 'fe/vue' },
+			{ text: 'React', link: 'fe/react' },
+			{ text: 'Solid', link: 'fe/solid' },
 		],
-		'Another Section': [{ text: 'Page 4', link: 'en/page-4' }],
 	},
+	be: {
+		'BackEnd': [{ text: 'Introduction', link: 'be/introduction' }, { text: 'Docker', link: 'be/docker' }, { text: 'Nest', link: 'be/nestjs' }, { text: 'Rust', link: 'be/rust' }],
+
+	}
 };

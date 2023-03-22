@@ -1,7 +1,7 @@
 /** @jsxImportSource react */
 import type { FunctionComponent } from 'react';
 import './LanguageSelect.css';
-import { KNOWN_LANGUAGES, langPathRegex } from '../../languages';
+import { KNOWLEDGE_CLASS, langPathRegex } from '../../languages';
 
 const LanguageSelect: FunctionComponent<{ lang: string }> = ({ lang }) => {
 	return (
@@ -29,12 +29,10 @@ const LanguageSelect: FunctionComponent<{ lang: string }> = ({ lang }) => {
 				value={lang}
 				onChange={(e) => {
 					const newLang = e.target.value;
-					let actualDest = window.location.pathname.replace(langPathRegex, '/');
-					if (actualDest == '/') actualDest = `/introduction`;
-					window.location.pathname = '/' + newLang + actualDest;
+					window.location.pathname = '/' + newLang + `/introduction`;
 				}}
 			>
-				{Object.entries(KNOWN_LANGUAGES).map(([key, value]) => {
+				{Object.entries(KNOWLEDGE_CLASS).map(([key, value]) => {
 					return (
 						<option value={value} key={value}>
 							{key}
